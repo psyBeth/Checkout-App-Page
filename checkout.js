@@ -25,8 +25,24 @@ products.addEventListener("click", (e) => {
 
     if(e.target.classList.contains("fa-plus")){
        // document.getElementById("quantity").innerText++
-       e.target.addEventListener.previousElementSibling.innerText++
+       e.target.previousElementSibling.innerText++
+       calculateProductPrice(e.target)
+       
     }
-
-
 })
+const calculateProductPrice = (btn) => {
+    const discountedPrice = btn
+        .closest(".product-info")
+        .querySelector("#discounted-price").textContent
+
+    const quantity = btn
+        .closest(".buttons-div")
+        .querySelector("#quantity").textContent
+
+    let productPrice = btn
+        .closest(".buttons-div")
+        .querySelector("#product-prices")
+
+    productPrice.textContent = discountedPrice * quantity
+}
+
