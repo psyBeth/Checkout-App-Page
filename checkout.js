@@ -1,8 +1,12 @@
+//! Constants
+
+//! Selectors
 const deleteProducts = document.querySelector(".delete-div .fa-trash-can")
 const products = document.querySelector(".products")
 
+//! Events
 //? Delete Products button event
-deleteProducts.addEventListener("click", () => {
+deleteProducts.addEventListener("click", (e) => {
     if(confirm("Are you sure you want to delete products?")){
         products.textContent = "No product"
         products.classList.add("no-product")
@@ -26,8 +30,7 @@ products.addEventListener("click", (e) => {
     if(e.target.classList.contains("fa-plus")){
        // document.getElementById("quantity").innerText++
        e.target.previousElementSibling.innerText++
-       calculateProductPrice(e.target)
-       
+       calculateProductPrice(e.target)   
     }
 })
 const calculateProductPrice = (btn) => {
@@ -39,9 +42,9 @@ const calculateProductPrice = (btn) => {
         .closest(".buttons-div")
         .querySelector("#quantity").textContent
 
-    let productPrice = btn
+    const productPrice = btn
         .closest(".buttons-div")
-        .querySelector("#product-prices")
+        .querySelector("#product-price")
 
     productPrice.textContent = discountedPrice * quantity
 }
