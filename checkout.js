@@ -57,7 +57,8 @@ const calculateProductPrice = (btn) => {
         .closest(".buttons-div")
         .querySelector("#product-price")
 
-    productPrice.textContent = discountedPrice * quantity
+    productPrice.textContent = (discountedPrice * quantity).toFixed(2)
+    calculateTotalPrice()
 }
 
 const calculateTotalPrice = () => {
