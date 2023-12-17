@@ -1,4 +1,7 @@
 //! Constants
+const SHIPPING_PRICE = 25.99
+const FREE_SHIPPING_LIMIT = 3000
+const TAX_RATE = 0.18
 
 //! Selectors
 const deleteProducts = document.querySelector(".delete-div .fa-trash-can")
@@ -95,4 +98,6 @@ const noProductPrint = () => {
     document.querySelector(".delete-div").style.display = "none"
 }
 
-
+window.addEventListener("load", () => {
+    calculateTotalPrice()
+})
