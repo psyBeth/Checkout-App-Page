@@ -57,3 +57,21 @@ const calculateProductPrice = (btn) => {
     productPrice.textContent = discountedPrice * quantity
 }
 
+const calculateTotalPrice = () => {
+    const prices = document.querySelectorAll("#product-price")
+
+    // fee for the selected products 
+    const subtotal = [...prices].reduce(
+        (sum, price) => sum + Number(price.textContent), 0
+    )
+
+    // fee for shipping
+    const shippingPrice = 
+        subtotal >= FREE_SHIPPING_LIMIT || subtotal === 0 ? 0 : SHIPPING_PRICE
+
+    // tex fee
+    const taxPrice = subtotal * TAX_RATE
+    
+    // total fee
+    const totalPrice = subtotal + shippingPrice + taxPrice
+}
