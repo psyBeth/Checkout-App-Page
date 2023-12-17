@@ -74,4 +74,17 @@ const calculateTotalPrice = () => {
     
     // total fee
     const totalPrice = subtotal + shippingPrice + taxPrice
+
+
+    //! Connecting it to DOM
+    document.getElementById("selected-price").textContent = subtotal.toFixed(2)
+
+    document.getElementById("shipping").textContent = shippingPrice.toFixed(2)
+
+    document.getElementById("tax").textContent = taxPrice.toFixed(2)
+
+    document.getElementById("total").textContent = totalPrice.toFixed(2)
+
+    //! if there's no product, print it 
+    !totalPrice && noProductPrint()
 }
