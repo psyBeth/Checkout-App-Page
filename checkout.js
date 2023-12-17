@@ -88,3 +88,11 @@ const calculateTotalPrice = () => {
     //! if there's no product, print it 
     !totalPrice && noProductPrint()
 }
+
+const noProductPrint = () => {
+    products.textContent = "No product"
+    products.classList.add("no-product")
+    document.querySelector(".delete-div").style.display = "none"
+}
+
+
