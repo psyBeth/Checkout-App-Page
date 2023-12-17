@@ -31,6 +31,14 @@ products.addEventListener("click", (e) => {
        // document.getElementById("quantity").innerText++
        e.target.previousElementSibling.innerText++
        calculateProductPrice(e.target)   
+    } else if (e.target.classList.contains("fa-minus")){
+        if(e.target.nextElementSibling.innerText > 1){
+            e.target.nextElementSibling.innerText--
+            calculateProductPrice(e.target)
+        }
+    } else if (e.target.classList.contains("fa-trash-can")) {
+        e.target.closest(".product").remove()
+        calculateTotalPrice()
     }
 })
 const calculateProductPrice = (btn) => {
